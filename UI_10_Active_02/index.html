@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>나의 홈페이지</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+      }
+      nav {
+        flex: 1;
+        vertical-align: top;
+        border: 1px solid rgb(129, 134, 129);
+        padding: 10px;
+      }
+      nav ul {
+        list-style: none;
+      }
+      nav li {
+        border-bottom: 1px solid rgb(49, 48, 48);
+        padding: 10px;
+        /* box-shadow : offset-x offset-y blur 색상 */
+        /* inset 은 그림자를 box 안쪽으로 들어가게 */
+        box-shadow: inset 0 0 #b4b1b2;
+        transition: 1s;
+      }
+      nav li:hover {
+        box-shadow: inset 200px 0 #b4b1b2;
+        cursor: pointer;
+      }
+      section {
+        flex: 6;
+        padding: 10px;
+        border: 1px solid rgb(0, 0, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li>HOME</li>
+        <li>회사소개</li>
+        <li>공지사항</li>
+        <li>자유게시판</li>
+      </ul>
+    </nav>
+    <section>
+      <article>
+        정당의 목적이나 활동이 민주적 기본질서에 위배될 때에는 정부는
+        헌법재판소에 그 해산을 제소할 수 있고, 정당은 헌법재판소의 심판에 의하여
+        해산된다. 재판의 심리와 판결은 공개한다. 다만, 심리는 국가의 안전보장
+        또는 안녕질서를 방해하거나 선량한 풍속을 해할 염려가 있을 때에는 법원의
+        결정으로 공개하지 아니할 수 있다.
+      </article>
+      <article>
+        국회의원의 수는 법률로 정하되, 200인 이상으로 한다. 헌법재판소의 장은
+        국회의 동의를 얻어 재판관중에서 대통령이 임명한다. 근로조건의 기준은
+        인간의 존엄성을 보장하도록 법률로 정한다. 대통령의 선거에 관한 사항은
+        법률로 정한다. 대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터
+        나온다.
+      </article>
+      <article>
+        대통령은 제1항과 제2항의 처분 또는 명령을 한 때에는 지체없이 국회에
+        보고하여 그 승인을 얻어야 한다. 대통령후보자가 1인일 때에는 그 득표수가
+        선거권자 총수의 3분의 1 이상이 아니면 대통령으로 당선될 수 없다.
+        헌법개정안이 제2항의 찬성을 얻은 때에는 헌법개정은 확정되며, 대통령은
+        즉시 이를 공포하여야 한다.
+      </article>
+    </section>
+  </body>
+</html>

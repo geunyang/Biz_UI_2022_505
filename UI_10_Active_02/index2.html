@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>나의 홈페이지</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      div.menu-box {
+        position: relative;
+        display: inline-block;
+        /* 가로방향 dropmenu여러개 배치될때 drop submenu가 없는 box도 항상 상단에 있도록 하는 속성 */
+        vertical-align: top;
+      }
+      div.top-menu {
+        margin: 20px;
+        cursor: pointer;
+        background-color: powderblue;
+        color: white;
+        padding: 12px 16px;
+        text-align: center;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+      }
+      div.top-menu:hover {
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+      }
+      /* div.menu-box에 hover가 되면 실제로는 ul.drop-menu에 style이 적용되어
+      display:block이 되고 drop-menu가 나타난다 */
+      /* 
+      display:none; tag 자체가 화면에서 사라져 없는 tag 가 된다
+      display:block; tag를 다시 나타나게
+      display 속성에는 애니메이션 관련 속성 적용이 불편
+      transition 속성은 작동 불가
+      visibility:hidden; 에서  visibility:visible로 변하는 속성을 부여하면 transition이 어느정도 적용됨.
+      opacity:0완전히 투명한 상태 ~ 1: 완전히 보이는 상태
+      */
+      ul.drop-menu {
+        /* display: none; */
+        min-height: 0;
+        visibility: hidden;
+        opacity: 0;
+        transition: 1s;
+        z-index: -1;
+        transform: translateY(-2rem);
+        margin-left: 20px;
+        list-style: none;
+        /* drop sub menu폭에 상관없이 top menu width 유지
+        이 속성이 적용되려면 바깥쪽 box의 속성이 position:relateve로 설정 */
+        position: absolute;
+        /* 
+        최소 폭유지
+        sub menu가 접히는(wrap) 현상을 방지하기 위하여
+        sub menu의 width가 가장 큰 요소의 값으로 설정한다
+        */
+        min-width: 200px;
+        background-color: #eee;
+      }
+      ul.drop-menu li {
+        padding: 12px 16px;
+        cursor: pointer;
+        color: rgb(85, 82, 82);
+      }
+      ul.drop-menu li:hover {
+        background-color: powderblue;
+      }
+      div.menu-box:hover ul.drop-menu {
+        /* display: block; */
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(-1rem);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>타이완남바완</h1>
+    <!-- 첫메뉴 -->
+    <div class="menu-box">
+      <div class="top-menu">짜장면</div>
+      <ul class="drop-menu">
+        <li>보통</li>
+        <li>간짜장</li>
+        <li>쟁반짜장</li>
+      </ul>
+    </div>
+    <!-- 두번째메뉴 -->
+    <div class="menu-box">
+      <div class="top-menu">짬뽕</div>
+      <ul class="drop-menu">
+        <li>보통</li>
+        <li>삼선짬뽕</li>
+        <li>하얀짬뽕</li>
+      </ul>
+    </div>
+    <!-- 세번째메뉴 -->
+    <div class="menu-box">
+      <div class="top-menu">검색</div>
+      <ul class="drop-menu">
+        <li>구글</li>
+        <li>네이버</li>
+        <li>다음</li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    // .drop-menu 클래스 아래의 li tag 들을 모아서
+    // menuList 에 저장
+    // menuList 에 현재 문서 중 조건에 맞는 li tag를 모두 가져와
+    // menuList 를 배열로 만들어준다
+    const menuList = document.querySelectorAll(".drop-menu li");
+    //li tag는 여러개가 존재하므로 아래와 같이 각각의 요소에 event handler를 추가해야 한다
+    // menuList[0].addEventListener("click", () => {
+    //     const text= menuList[0].innerText;
+    //     alert(text);
+    // });
+
+    // let 키워드는 값이 변동되는 변수를 선언한다
+    for (let i = 0; i < menuList.length; i++) {
+      /*
+        eventListener  설정, event Handler 설정
+        li tag를 클릭하면 li tag와 text(innertext속성값) 를 text 변수에 담고
+        alert 창으로 보여라
+        */
+      menuList[i].addEventListener("click", () => {
+        const text = menuList[i].innerText;
+        alert(text);
+        if (text === "구글") {
+          document.location.href = "https://google.com";
+        } else if (text === "네이버") {
+          document.location.href = "https://naver.com";
+        } else if (text === "다음") {
+          document.location.href = "https://daum.net";
+        } else if (text === "간짜장") {
+          confirm("맛잘알");
+        }
+      });
+    }
+  </script>
+</html>
